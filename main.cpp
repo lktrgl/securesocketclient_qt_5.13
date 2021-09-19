@@ -52,24 +52,25 @@
 #include <QMessageBox>
 #include <QtNetwork>
 
-QT_REQUIRE_CONFIG(ssl);
+QT_REQUIRE_CONFIG ( ssl );
 
 #include "sslclient.h"
 
-int main(int argc, char **argv)
+int main ( int argc, char** argv )
 {
-    Q_INIT_RESOURCE(securesocketclient);
+  Q_INIT_RESOURCE ( securesocketclient );
 
-    QApplication app(argc, argv);
+  QApplication app ( argc, argv );
 
-    if (!QSslSocket::supportsSsl()) {
-        QMessageBox::information(nullptr, "Secure Socket Client",
-                                 "This system does not support SSL/TLS.");
-        return -1;
-    }
+  if ( !QSslSocket::supportsSsl() )
+  {
+    QMessageBox::information ( nullptr, "Secure Socket Client",
+                               "This system does not support SSL/TLS." );
+    return -1;
+  }
 
-    SslClient client;
-    client.show();
+  SslClient client;
+  client.show();
 
-    return app.exec();
+  return app.exec();
 }

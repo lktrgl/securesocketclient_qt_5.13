@@ -53,7 +53,7 @@
 
 #include <QtNetwork>
 
-QT_REQUIRE_CONFIG(ssl);
+QT_REQUIRE_CONFIG ( ssl );
 
 #include <QtWidgets>
 
@@ -63,32 +63,32 @@ QT_END_NAMESPACE
 
 class SslClient : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 public:
-    explicit SslClient(QWidget *parent = nullptr);
-    ~SslClient();
+  explicit SslClient ( QWidget* parent = nullptr );
+  ~SslClient();
 
 private slots:
-    void updateEnabledState();
-    void secureConnect();
-    void socketStateChanged(QAbstractSocket::SocketState state);
-    void socketEncrypted();
-    void socketReadyRead();
-    void sendData();
-    void socketError(QAbstractSocket::SocketError error);
-    void sslErrors(const QList<QSslError> &errors);
-    void displayCertificateInfo();
+  void updateEnabledState();
+  void secureConnect();
+  void socketStateChanged ( QAbstractSocket::SocketState state );
+  void socketEncrypted();
+  void socketReadyRead();
+  void sendData();
+  void socketError ( QAbstractSocket::SocketError error );
+  void sslErrors ( const QList<QSslError>& errors );
+  void displayCertificateInfo();
 
 private:
-    void setupUi();
-    void setupSecureSocket();
-    void appendString(const QString &line);
+  void setupUi();
+  void setupSecureSocket();
+  void appendString ( const QString& line );
 
-    QSslSocket *socket = nullptr;
-    QToolButton *padLock = nullptr;
-    Ui_Form *form = nullptr;
-    bool handlingSocketError = false;
-    bool executingDialog = false;
+  QSslSocket* socket = nullptr;
+  QToolButton* padLock = nullptr;
+  Ui_Form* form = nullptr;
+  bool handlingSocketError = false;
+  bool executingDialog = false;
 };
 
 #endif

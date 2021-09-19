@@ -61,19 +61,19 @@ QT_END_NAMESPACE
 
 class CertificateInfo : public QDialog
 {
-    Q_OBJECT
+  Q_OBJECT
 public:
-    explicit CertificateInfo(QWidget *parent = nullptr);
-    ~CertificateInfo();
+  explicit CertificateInfo ( QWidget* parent = nullptr );
+  ~CertificateInfo();
 
-    void setCertificateChain(const QList<QSslCertificate> &chain);
+  void setCertificateChain ( const QList<QSslCertificate>& chain );
 
 private slots:
-    void updateCertificateInfo(int index);
+  void updateCertificateInfo ( int index );
 
 private:
-    Ui_CertificateInfo *form = nullptr;
-    QList<QSslCertificate> certificateChain;
+  Ui_CertificateInfo* form = nullptr;
+  QList<QSslCertificate> certificateChain;
 };
 
 #endif
